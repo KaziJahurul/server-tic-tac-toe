@@ -9,9 +9,12 @@ let gameData = {
 			['', '', ''],
 			['', '', '']
 		  ],
-	next: 'x',
+	next: '',
 	finished: false,
-	draw: false
+	draw: false,
+	playerX: '',
+    playerY: '',
+    gameStart: false,
 }
 
 Socketio.on("connection", socket => {
