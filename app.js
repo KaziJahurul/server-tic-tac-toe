@@ -3,22 +3,22 @@ const Http = require("http").Server(Express);
 const Socketio = require("socket.io")(Http);
 
 
-
-var rows = [
-	  ['', '', ''],
-	  ['', '', ''],
-	  ['', '', '']
-	],
-	next = 'x',
-	finished = false,
-	draw = false;
-
+let gameData = {
+	rows: [
+			['', '', ''],
+			['', '', ''],
+			['', '', '']
+		  ],
+	next: 'x',
+	finished: false,
+	draw: false
+}
 
 Socketio.on("connection", socket => {
-	socket.emit("rows", rows);
-	socket.on("updateRows", data => {
-		rows = data;
-		Socketio.emit("rows", rows);
+	socket.emit("gameData", gameData);
+	socket.on("updateTapClick", data => {
+		gameData = data;
+		Socketio.emit("gameData", gameData);
 	});
 });
 
