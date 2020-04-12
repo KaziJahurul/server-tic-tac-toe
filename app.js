@@ -23,6 +23,10 @@ Socketio.on("connection", socket => {
 		gameData = data;
 		Socketio.emit("gameData", gameData);
 	});
+	socket.on("refreshBoard", data => {
+		gameData = data;
+		Socketio.emit("refreshBoardAll", gameData);
+	});
 });
 
 
