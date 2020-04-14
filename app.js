@@ -14,6 +14,9 @@ let gameData = {
 	draw: false,
 	playerX: '',
     playerY: '',
+    probX: '',
+    probY: '',
+    probD: '',
     gameStart: false,
 }
 
